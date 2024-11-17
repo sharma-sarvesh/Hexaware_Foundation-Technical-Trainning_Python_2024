@@ -1,0 +1,72 @@
+<!-- Create a registration form that validates user input (e.g., name, email, password) before submission. Display appropriate error messages if the input is invalid.
+Hints: Use onSubmit() event for form validation. Validate email format using regular expressions and check password strength. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" placeholder="Enter your name"><br>
+        <span id="nameError" class="error"></span><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" placeholder="Enter your email(demo@gmail.com)"><br>
+        <span id="emailError" class="error"></span><br>
+        
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" placeholder="Enter your password"><br>
+        <span id="passwordError" class="error"></span><br>
+        
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            // Clear previous errors
+            document.getElementById('nameError').innerHTML = '';
+            document.getElementById('emailError').innerHTML = '';
+            document.getElementById('passwordError').innerHTML = '';
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var valid = true;
+
+            // Name validation
+            if (name === "") {
+                document.getElementById('nameError').innerHTML = "Name is required";
+                valid = false;
+            }
+
+            // Email validation using regular expression
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (email === "") {
+                document.getElementById('emailError').innerHTML = "Email is required";
+                valid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('emailError').innerHTML = "Invalid email format";
+                valid = false;
+            }
+
+            // Password validation (at least 8 characters)
+            if (password === "") {
+                document.getElementById('passwordError').innerHTML = "Password is required";
+                valid = false;
+            } else if (password.length < 8) {
+                document.getElementById('passwordError').innerHTML = "Password must be at least 8 characters long";
+                valid = false;
+            }
+
+            // Prevent form submission if validation fails
+            return valid;
+        }
+    </script>
+</body>
+</html>

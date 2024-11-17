@@ -1,0 +1,74 @@
+<!-- Create a To-Do List app where the user can add tasks, delete tasks, and mark them as completed. 
+Hints: Use getElementById(), createElement(), appendChild(), and event handling for DOM manipulation. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple To-Do List</title>
+    <style>
+        /* Add some margin between the buttons and the task text */
+        li {
+            margin-bottom: 10px; 
+        }
+        .task-text {
+            margin-right: 15px; 
+        }
+        .task-button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>To-Do List</h2>
+    
+    <input type="text" id="newTask" placeholder="Enter a new task">
+    <button type="button" onclick="addTask()">Add Task</button>
+    
+    <ul id="taskList"></ul>
+    
+    <script>
+        function addTask() {
+            var taskText = document.getElementById('newTask').value;
+            if (taskText === '') {
+                alert('Please enter a task');
+                return;
+            }
+            
+            // Create a new task 
+            var li = document.createElement('li');
+            
+            // Add the task text with some margin
+            var span = document.createElement('span');
+            span.className = 'task-text';
+            var task = document.createTextNode(taskText);
+            span.appendChild(task);
+            li.appendChild(span);
+            
+            // Add Completed button 
+            var completeButton = document.createElement('button');
+            completeButton.innerHTML = 'Completed';
+            completeButton.className = 'task-button';
+            completeButton.onclick = function() {
+                span.style.textDecoration = 'line-through';
+            };
+            li.appendChild(completeButton);
+            
+            // Add Delete button 
+            var deleteButton = document.createElement('button');
+            deleteButton.innerHTML = 'Delete';
+            deleteButton.className = 'task-button';
+            deleteButton.onclick = function() {
+                li.remove();
+            };
+            li.appendChild(deleteButton);
+            
+            // Append the new task to the list
+            document.getElementById('taskList').appendChild(li);
+            
+            // Clear the input field
+            document.getElementById('newTask').value = '';
+        }
+    </script>
+</body>
+</html>
+

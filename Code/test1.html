@@ -1,0 +1,20 @@
+<!-- Create a webpage that prompts the user to enter their name when the page loads and then displays an alert with a welcome message. -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Page</title>
+</head>
+<body>
+    <script>
+        function welcomeUser() {
+            var name = prompt("Please enter your name:");
+            alert("Welcome, " + name + "!");
+        }
+
+        window.onload = welcomeUser;
+    </script>
+</body>
+</html>
+

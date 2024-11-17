@@ -1,0 +1,21 @@
+<!-- Create a webpage with a button that changes the background color of the webpage to a random color each time it’s clicked. 
+Hints: Use Math.random() for generating random colors and onclick for event handling. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+</head>
+<body>
+    <button onclick = "changeColour()"> Click to Change Colour </button>
+    <script>
+        function changeColour() 
+        {
+            const randomColour = 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
+
+            document.body.style.backgroundColor = randomColour;
+        }
+    </script>
+
+</body>
+</html>

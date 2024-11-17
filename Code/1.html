@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexaware JS Session</title>
+    <style>
+        #hoverDiv {
+          width: 200px;
+          height: 100px;
+          /* background-color: lightblue; */
+          text-align: center;
+          line-height: 100px;
+        }
+      </style>
+</head>
+<body>
+    <p id="loadingMessage">Loading image...</p>
+  <!-- <img src="https://placehold.co/300" onload="imageLoaded()" alt="Placeholder Image"> -->
+  <img src="man.jpg" style="width: 400px;height: auto;" onload="imageLoaded()" alt="Placeholder Image">
+  
+  <script>
+    function imageLoaded() {
+      document.getElementById("loadingMessage").innerHTML = "Image successfully loaded!";
+    }
+  </script>
+
+<p>Resize the window to see the dimensions change:</p>
+<p id="windowSize"></p>
+
+<script>
+  window.onresize = function() {
+    document.getElementById("windowSize").innerHTML = "Width: " + window.innerWidth + "px, Height: " + window.innerHeight + "px";
+  };
+</script>
+
+<p>Press any key inside the input field:</p>
+  <input type="text" onkeydown="showKeyCode(event)">
+  <p id="keyOutput"></p>
+
+  <script>
+    function showKeyCode(event) {
+      document.getElementById("keyOutput").innerHTML = "Key code: " + event.keyCode;
+    }
+  </script>
+
+<div id="hoverDiv" onmouseover="hoverIn()" onmouseout="hoverOut()">Hover over me!</div>
+
+<script>
+  function hoverIn() {
+    document.getElementById("hoverDiv").style.backgroundColor = "lightgreen";
+  }
+
+  function hoverOut() {
+    document.getElementById("hoverDiv").style.backgroundColor = "lightblue";
+  }
+</script>
+
+
+    <p id="sample1"></p>
+    <p id="sample">This is a Paragraph within p tag!</p>
+    <button onclick="changeText()">click here!</button>
+    <A HREF="http://www.ilstu.edu/"
+        onmouseover="window.status='A Good Place …!'; 
+        return true">
+        Click me</A>
+    <script>
+        // var name = "Hiran Ram Babu"; // global/function scoped
+        // let name1 = "HRB"; //local or block scoped
+        // const NAME = "HRB"; //constant
+        // alert("Welcome, " + name +"!");
+        // console.log("let name1 is "+name1);
+        // console.log("Constant NAME is "+NAME);
+        // let a = 10;
+        // let b = 20; //number
+        // let c = 20.5; //number
+        // let d = "HRB"; //string
+        // let e = true; //boolean
+        // let g; //undef
+        // let h = null; //null
+        // console.log("Addition of a and b is "+a+b)
+        // confirm("Would you like to continue?")
+        // let name = prompt("Enter your name: ")
+        // alert("Welcome, " + name +"!");
+        // document.write("Welcome, " + name +"!");
+        // if (confirm("Would you like to continue?")){
+        //     let name = prompt("Enter your name: ")
+        //     alert("Welcome, " + name +"!");  
+        //     document.write("Welcome, " + name +"!");
+        // }
+        // else{
+        //     alert("Thank you so much!")
+        //     document.write("Thank you so much!");
+        // }
+        // for (var i = 0; i < 10; i++) {
+        //     document.write(i);
+        // }
+
+        // let ar = [1,2,3,4,5]
+        // for (x of ar) {
+        //     document.write(x);
+        // }
+
+        // let student = {
+        //     name: "HRB",
+        //     mobile: 8825410600,
+        //     emailID: "info@mjit.in",
+        //     english: 65,
+        //     tamil: 65,
+        //     maths: 55,
+        // };
+
+        // let endVal = prompt("Enter the endVal: ");
+        // function summation (endVal) { //function definition
+        //     var thesum=0;
+        //     for ( var iter = 1; iter <= endVal; iter++ ) 
+        //     thesum += iter;
+        //     return ( thesum );
+        // }
+        // answer = summation(endVal); //function call
+        // alert("The sume is "+answer);
+        // let arr = [1,2,3,4,5,6]
+        // var thesum=0;
+        // function summation (...val) { //Rest parameter - ... prefixed to val parameter - indefinite values
+        //     for (var i of val) {
+        //         thesum += i;
+        //     }
+        //     return (thesum );
+        // }
+        // alert(summation(1,2,3,4,5));
+        // alert(summation(1,2,3));
+        // alert(summation(1,23,4,5));
+
+        // function square(i) {
+        //     document.write("The call passed "+ i + " to the function."+"<BR>");
+        //     return i * i;
+        // }
+        // document.write("The function returned "+square(8)+".");
+        function changeText() {
+            document.getElementById("sample1").innerHTML = "<b>This is text by the JS!</b>";
+            document.getElementById("sample").innerText = "<b>This is text by the JS!</b>";
+        }
+    </script>
+</body>
+</html>
+
+let x = 10;
+if (x == 10) {
+let x = 20;
+console.log(x); // 20: reference x inside the block
+}
+console.log(x); // 10: reference at the begining of the script
+
+for (let i = 0; i < 5; i++) {
+        setTimeout(() => console.log(i), 1000);
+        }
+
+        const RATE = 0.1;
+        RATE = 0.2; // TypeError
+        ----------------------------
+        const RED; // SyntaxError
+        ----------------------------
+        const person = { age: 20 };
+        person.age = 30; // OK
+        person = { age: 40 }; // TypeError
+        const person = Object.freeze({age: 20});
+        person.age = 30; // TypeError
+
+        function say(message) {
+
+                console.log(message);
+                
+                }
+                
+                say(); // undefined
+                 
+                function say(message) {
+                
+                message = typeof message !== 'undefined' ? message : 'Hi';
+                
+                console.log(message);
+                
+                }
+                
+                say(); // 'Hi'
+                 
+                function say(message='Hi') {
+                
+                console.log(message);
+                
+                }
+                
+                say(); // 'Hi'
+                
+                say(undefined); // 'Hi'
+                
+                say('Hello'); // 'Hello'
+                
+                 
+                function fun(...input){
+                
+                let sum = 0;
+                
+                for(let i of input){
+                
+                sum+=i;
+                
+                }
+                
+                return sum;
+                
+                }
+                
+                console.log(fun(1,2)); //3
+                
+                console.log(fun(1,2,3)); //6
+                
+                console.log(fun(1,2,3,4,5)); //15
+
+                const odd = [1,3,5];
+                const combined = [2,4,6, ...odd];
+                console.log(combined);// [ 2, 4, 6, 1, 3, 5 ]
+
+
+
+
+
+
+
+
+
+
+
+
+                // cal.js
+                export let a = 10, b = 20, result = 0;
+                
+                export function sum() {
+                
+                result = a + b;
+                
+                return result;
+                
+                }
+                export function multiply() {
+                result = a * b;               
+                return result;                
+                }
+
+                import {a, b, result, sum, multiply } from './cal.js';
+                sum();
+                console.log(result); // 30
+                multiply();
+                console.log(result); // 200
+                
+                class Person {
+                        constructor(name) 
+                        {
+                                this.name = name;
+                        }
+
+                        getName() 
+                        {
+                                return this.name;
+                        }
+                }
+                
+                let john = new Person("John Doe");
+                let name = john.getName();
+                console.log(name); // "John Doe"
+                let Person = class 
+                {
+                        constructor(name) 
+                        {
+                                this.name = name;
+                        }
+                getName() 
+                {
+                        return this.name;
+                }                
+                }
+                
