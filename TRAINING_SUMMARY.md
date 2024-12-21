@@ -1,6 +1,6 @@
 # Python: Foundation Technical Training Summary
 
-This document provides an overview of the comprehensive Python Foundation Technical Training I completed from September 24 to October 24, 2024. The training was conducted by Hiran Ram Babu and spanned over one month, covering essential concepts in problem-solving, data structures, Agile methodologies, SQL Server, Python programming, and more.
+This document provides an overview of the comprehensive Python Foundation Technical Training which spanned over one month, covering essential concepts in problem-solving, data structures, Agile methodologies, SQL Server, Python programming, and more.
 
 ## Training Plan Overview
 
