@@ -1,6 +1,6 @@
-# Python Foundation Training - Batch 3
+# Python Foundation Training 
 
-Welcome to my Python Foundation Training repository! This repository contains all my work and projects completed during the Foundation Technical Training on Python language, conducted from September 24 to October 24, 2024. The training focused on a variety of topics, including problem-solving techniques, data structures, databases, and full-stack development concepts using Python and SQL.
+Welcome to my Python Foundation Training repository! This repository contains all my work and projects completed during the Foundation Technical Training on Python language. The training focused on a variety of topics, including problem-solving techniques, data structures, databases, and full-stack development concepts using Python and SQL.
 
 ## Repository Structure
 
